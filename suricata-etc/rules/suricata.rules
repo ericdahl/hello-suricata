@@ -1,8 +1,8 @@
 # example.com test
-#alert tcp any any -> 93.184.216.34 any (msg:"example"; sid:1;)
-alert tcp any any -> any any (msg:"example"; sid:1;)
+alert tcp any any -> 93.184.216.34 any (msg:"example"; sid:1;)
+#alert tcp any any -> any any (msg:"example"; sid:1;)
 
-drop ip any any -> 93.184.216.34 any (msg:"example"; content:"foobar"; sid:2;)
+drop ip any any -> 93.184.216.34 any (msg: "drop 1"; flow:established,to_server;content:"i"; sid: 2;)
 #pass ip any any -> 93.184.216.34 any (msg:"example"; sid:3;)
 
 alert tcp any any -> any 1111 (msg:"example"; sid:4;)
